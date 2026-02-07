@@ -1,0 +1,79 @@
+@import './variables.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg-body);
+    color: var(--color-text-main);
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Utilities */
+.nb-border {
+    border: var(--border-width) solid var(--color-border);
+}
+
+.nb-shadow {
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--color-border);
+}
+
+.nb-shadow-sm {
+    box-shadow: 2px 2px 0px 0px var(--color-border);
+}
+
+.nb-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--color-border);
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.nb-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px 0px var(--color-border);
+}
+
+/* Material Symbols Helper */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+/* Layout Helper */
+.container-mobile {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-body);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle guidance on desktop */
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .container-mobile {
+    border-color: rgba(255, 255, 255, 0.05);
+}

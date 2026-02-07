@@ -1,0 +1,131 @@
+Table profiles {
+  id uuid [pk]
+  email text [unique]
+  password_hash text
+  full_name text
+  mobile text
+  mobile_secondary text
+  country_code text
+  role text
+  is_verified boolean
+  is_blocked boolean
+  trial_expires_at timestamp
+  created_at timestamp
+}
+
+Table trucks {
+  id uuid [pk]
+  owner_id uuid [ref: > profiles.id]
+  truck_number text
+  model text
+  created_at timestamp
+}
+
+Table drivers {
+  id uuid [pk]
+  owner_id uuid [ref: > profiles.id]
+  assigned_truck_id uuid [ref: > trucks.id]
+  name text
+  license_number text
+  mobile_primary text
+  mobile_secondary text
+  blood_group text
+  salary numeric
+  advance numeric
+  photo_url text
+  aadhar_url text
+}
+
+Table suppliers {
+  id serial [pk]
+  owner_id uuid [ref: > profiles.id]
+  name text
+  address text
+  mobile text
+}
+
+Table clients {
+  id serial [pk]
+  owner_id uuid [ref: > profiles.id]
+  name text
+  address text
+  mobile text
+}
+
+Table materials {
+  id serial [pk]
+  owner_id uuid [ref: > profiles.id]
+  name text
+}
+
+Table petrol_pumps {
+  id serial [pk]
+  owner_id uuid [ref: > profiles.id]
+  name text
+  location text
+}
+
+Table trips {
+  id uuid [pk]
+  truck_id uuid [ref: > trucks.id]
+  supplier_id int [ref: > suppliers.id]
+  client_id int [ref: > clients.id]
+  material_id int [ref: > materials.id]
+  trip_date date
+  location text
+  material_price numeric
+  trips_count int
+  total_order_value numeric
+  profit numeric
+  total_expense numeric
+  status text
+  remark text
+  created_at timestamp
+}
+
+Table payments {
+  id serial [pk]
+  trip_id uuid [ref: > trips.id]
+  amount numeric
+  payment_date date
+  mode text
+}
+
+Table fuel_expenses {
+  id serial [pk]
+  owner_id uuid [ref: > profiles.id]
+  truck_id uuid [ref: > trucks.id]
+  pump_id int [ref: > petrol_pumps.id]
+  driver_id uuid [ref: > drivers.id]
+  expense_date date
+  amount numeric
+  liters numeric
+  filled_by text
+  receipt_url text
+}
+
+Table general_expenses {
+  id serial [pk]
+  truck_id uuid [ref: > trucks.id]
+  amount numeric
+  category text
+  description text
+  expense_date date
+}
+
+Table trip_expenses {
+  id serial [pk]
+  trip_id uuid [ref: > trips.id]
+  category text
+  amount numeric
+  description text
+}
+
+Table notifications {
+  id serial [pk]
+  owner_id uuid [ref: > profiles.id]
+  title text
+  content text
+  is_read boolean
+  created_at timestamp
+}

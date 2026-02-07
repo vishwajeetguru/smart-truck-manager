@@ -1,0 +1,45 @@
+:root {
+   /* Colors - Light Theme */
+   --color-primary: #137fec;
+   --color-primary-dark: #0a4f94;
+   --color-accent: #f97316;
+   /* Orange */
+
+   --color-bg-body: #F4F6FA;
+   --color-bg-surface: #ffffff;
+
+   --color-text-main: #111418;
+   --color-text-muted: #64748b;
+
+   --color-border: #111418;
+
+   /* Status Colors */
+   --color-success: #22c55e;
+   --color-error: #ef4444;
+   --color-warning: #eab308;
+
+   /* Neobrutalism */
+   --border-width: 2px;
+   --shadow-offset: 4px;
+   --radius-sm: 0.25rem;
+   --radius-md: 0.5rem;
+   --radius-lg: 0.75rem;
+   --radius-xl: 1rem;
+}
+
+[data-theme="dark"] {
+   /* Colors - Dark Theme */
+   --color-bg-body: #101922;
+   --color-bg-surface: #1e293b;
+
+   --color-text-main: #f8fafc;
+   --color-text-muted: #94a3b8;
+
+   --color-primary: #3b82f6;
+   /* Brighter Blue for Dark Mode */
+}
+
+/* Hard override for dark mode borders if needed. */
+[data-theme="dark"] {
+   --color-border: #e2e8f0;
+}
