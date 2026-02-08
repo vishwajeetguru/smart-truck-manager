@@ -1,0 +1,12 @@
+# Common
+node_modules/
+.env*
+.DS_Store
+
+# Frontend
+frontend/dist/
+frontend/.netlify/
+
+# Backend
+backend/dist/
+backend/.env
