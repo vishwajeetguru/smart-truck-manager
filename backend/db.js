@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 
 const connectionString = process.env.NETLIFY_DATABASE_URL || process.env.DATABASE_URL;
 

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const { query } = require('./db');
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 
 const app = express();
 app.use(cors({
